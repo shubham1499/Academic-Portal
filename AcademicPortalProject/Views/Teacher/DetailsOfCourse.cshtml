@@ -1,0 +1,107 @@
+﻿@*@model AcademicPortalProject.Models.CourseTable
+
+    @{
+        ViewBag.Title = "DetailsOfCourse";
+    }
+
+    <h2>DetailsOfCourse</h2>
+
+    <div>
+        <h4>CourseTable</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TeacherTable.TeacherName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TeacherTable.TeacherName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CourseName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CourseName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CourseDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CourseDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CourseCredits)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CourseCredits)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to My Courses", "Courses", new { id = Model.TeacherId }) |
+        @Html.ActionLink("View Students Enrolled", "StudentsEnrolled", new { id = Model.CourseId }) |
+    </p>*@
+
+@model AcademicPortalProject.Models.CourseTable
+
+@{
+    ViewBag.Title = "DetailsOfCourse";
+}
+
+<h2>DetailsOfCourse</h2>
+
+<div>
+    <h4>CourseTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherTable.TeacherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherTable.TeacherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseCredits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseCredits)
+        </dd>
+
+    </dl>
+
+
+    @*<button class="btn btn-danger" onClick="location.href =' @Url.Action("Courses" ,"Teacher",new { id = Model.TeacherId })';return false;">Back to mycourses</button>
+    <button class="btn btn-danger" onClick="location.href =' @Url.Action("StudentsEnrolled" ,"Teacher",new { id = Model.CourseId })';return false;">Student Enrolled</button>*@
+
+</div>
+
+<p>
+        @Html.ActionLink("Back to My Courses", "Courses", new { id = Model.TeacherId }) |
+        @Html.ActionLink("View Students Enrolled", "StudentsEnrolled", new { id = Model.CourseId }) 
+    </p>

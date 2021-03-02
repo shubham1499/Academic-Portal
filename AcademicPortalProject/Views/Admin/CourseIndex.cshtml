@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AcademicPortalProject.Models.CourseTable>
+
+@{
+    ViewBag.Title = "CourseIndex";
+}
+
+<h2>All Courses</h2>
+
+<div>
+    <button class="btn btn-group-justified" onClick="location.href =' @Url.Action("CreateCourse" ,"Admin")';return false;">Add Course</button><br /><br />
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherTable.TeacherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseCredits)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherTable.TeacherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseCredits)
+        </td>
+        @*<td>
+            @Html.ActionLink("Delete", "DeleteCourse", new { id=item.CourseId })
+        </td>*@
+
+        <td>
+            <button class="btn btn-danger" onClick="location.href =' @Url.Action("DeleteCourse" ,"Admin", new { id = item.CourseId })';return false;">Delete Course</button>
+        </td>
+
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Homepage", "Homepage",new { id = int.Parse(Session["UserId"].ToString())})
+</div>
+
+@*<div>
+    <button class="btn btn-warning" onClick="location.href =' @Url.Action("HomePage" ,"Admin")';return false;">Back to homepage</button>
+</div>*@

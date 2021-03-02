@@ -1,0 +1,95 @@
+﻿@*@model IEnumerable<AcademicPortalProject.Models.StudentTable>
+
+    @{
+        ViewBag.Title = "StudentsEnrolled";
+    }
+
+    <h2>StudentsEnrolled</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentCity)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentCity)
+            </td>
+        </tr>
+    }
+
+    </table>
+    <div>
+        @Html.ActionLink("Back to My Courses", "Courses", new { id = int.Parse(Session["UserId"].ToString()) })
+    </div>*@
+
+@model IEnumerable<AcademicPortalProject.Models.StudentTable>
+
+@{
+    ViewBag.Title = "StudentsEnrolled";
+}
+
+<h2>Students Enrolled</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentCity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentCity)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to My Courses", "Courses", new { id = int.Parse(Session["UserId"].ToString()) })
+</div>

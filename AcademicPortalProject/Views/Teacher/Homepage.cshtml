@@ -1,0 +1,21 @@
+﻿@*@model AcademicPortalProject.Models.TeacherTable
+
+    @{
+        ViewBag.Title = "Homepage";
+    }
+
+    <h2>Homepage</h2>
+
+    @Html.ActionLink("Edit Profile", "Edit", new { id = Model.TeacherId }, null) |
+    @Html.ActionLink("My Courses", "Courses", new { id = Model.TeacherId })*@
+
+@model AcademicPortalProject.Models.TeacherTable
+
+@{
+    ViewBag.Title = "Homepage";
+}
+
+<h2>Homepage</h2>
+<button class="btn btn-primary" onClick="location.href =' @Url.Action("Edit" ,"Teacher",new { id = Model.TeacherId },null)';return false;">Edit Profile</button>
+
+<button class="btn btn-primary" onClick="location.href =' @Url.Action("Courses" ,"Teacher",new { id = Model.TeacherId })';return false;">My Courses</button>

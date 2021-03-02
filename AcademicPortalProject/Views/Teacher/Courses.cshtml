@@ -1,0 +1,92 @@
+﻿@*@model IEnumerable<AcademicPortalProject.Models.CourseTable>
+
+    @{
+        ViewBag.Title = "Courses";
+    }
+
+    <h2>Courses</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseCredits)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseCredits)
+            </td>
+            <td>
+                @Html.ActionLink("Details of Course", "DetailsOfCourse", new { id = item.CourseId })
+            </td>
+        </tr>
+    }
+
+    </table>
+    <div>
+        @Html.ActionLink("Back to Homepage", "Homepage", new { id = int.Parse(Session["UserId"].ToString()) })
+    </div>*@
+
+@model IEnumerable<AcademicPortalProject.Models.CourseTable>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<h2>Courses</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseCredits)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseCredits)
+            </td>
+            <td>
+                <button class="btn btn-primary" onClick="location.href =' @Url.Action("DetailsOfCourse" ,"Teacher", new { id = item.CourseId })';return false;">Course Details</button>
+
+            </td>
+            <td>
+                <button class="btn btn-primary" onClick="location.href =' @Url.Action("StudentsEnrolled" ,"Teacher",new { id = item.CourseId })';return false;">Student Enrolled</button>
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to Homepage", "Homepage", new { id = int.Parse(Session["UserId"].ToString()) })
+</div>

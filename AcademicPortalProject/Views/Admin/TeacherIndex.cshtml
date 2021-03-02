@@ -1,0 +1,111 @@
+﻿@*@model IEnumerable<AcademicPortalProject.Models.TeacherTable>
+
+    @{
+        ViewBag.Title = "TeacherIndex";
+    }
+
+    <h2>All Teachers</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "CreateTeacher")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TeacherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeacherEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeacherGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeacherCity)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherCity)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteTeacher", new { id=item.TeacherId })
+            </td>
+        </tr>
+    }
+
+    </table>
+    <div>
+        @Html.ActionLink("Back to Homepage", "Homepage", new { id = int.Parse(Session["UserId"].ToString()) })
+    </div>*@
+
+@model IEnumerable<AcademicPortalProject.Models.TeacherTable>
+
+@{
+    ViewBag.Title = "TeacherIndex";
+}
+
+<h2>All Teachers</h2>
+
+<div>
+    <button class="btn btn-group-justified" onClick="location.href =' @Url.Action("CreateTeacher" ,"Admin")';return false;">Add Teacher</button><br />
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherCity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherCity)
+            </td>
+            <td>
+                <button class="btn btn-danger" onClick="location.href =' @Url.Action("DeleteTeacher" ,"Admin", new { id = item.TeacherId })';return false;">Delete Teacher</button>
+            </td>
+        </tr>
+    }
+
+</table>
+@*<div>
+    <button class="btn btn-danger" onClick="location.href =' @Url.Action("HomePage" ,"Admin")';return false;">Back to home</button>
+</div>*@
+
+<div>
+    @Html.ActionLink("Back to Homepage", "Homepage", new { id = int.Parse(Session["UserId"].ToString()) })
+</div>

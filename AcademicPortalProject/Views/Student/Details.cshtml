@@ -1,0 +1,118 @@
+﻿@*@model AcademicPortalProject.Models.StudentTable
+
+    @{
+        ViewBag.Title = "Details";
+    }
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>StudentTable</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StudentName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentEmail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StudentEmail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentPassword)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StudentPassword)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentGender)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StudentGender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentCity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StudentCity)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.StudentId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+
+@model AcademicPortalProject.Models.StudentTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StudentTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentGender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentCity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button class="btn btn-danger" onClick="location.href =' @Url.Action("Edit" ,"Student", new { id = Model.StudentId })';return false;">Edit Student</button>
+    <button class="btn btn-danger" onClick="location.href =' @Url.Action("Index" ,"Student")';return false;">Student list</button>
+
+</p>

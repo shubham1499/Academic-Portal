@@ -1,0 +1,24 @@
+﻿@*@model AcademicPortalProject.Models.StudentTable
+
+    @{
+        ViewBag.Title = "Homepage";
+    }
+
+    <h2>Homepage</h2>
+
+
+    @Html.ActionLink("Edit Profile", "Edit", new { id = Model.StudentId }, null) |
+    @Html.ActionLink("Courses Enrolled", "Courses", new { id = Model.StudentId }) |
+    @Html.ActionLink("Enroll into new Course", "CourseEnrollment", new { id = Model.StudentId })*@
+
+@model AcademicPortalProject.Models.StudentTable
+
+@{
+    ViewBag.Title = "Homepage";
+}
+
+<h2>Homepage</h2>
+
+<button class="btn btn-primary" onClick="location.href =' @Url.Action("Edit" ,"Student", new { id = Model.StudentId },null)';return false;">Profile</button>
+<button class="btn btn-primary" onClick="location.href =' @Url.Action("Courses" ,"Student", new { id = Model.StudentId },null)';return false;">View Course List</button>
+<button class="btn btn-primary" onClick="location.href =' @Url.Action("CourseEnrollment" ,"Student", new { id = Model.StudentId },null)';return false;">Enroll into new course</button>

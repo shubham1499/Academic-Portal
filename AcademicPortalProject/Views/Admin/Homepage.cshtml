@@ -1,0 +1,35 @@
+﻿@*@model AcademicPortalProject.Models.AdminTable
+
+    @{
+        ViewBag.Title = "Homepage";
+    }
+
+    <h2>Welcome to the Academic Portal!</h2>
+
+    <div>
+        @Html.ActionLink("View Students", "StudentIndex")
+    </div>
+    <div>
+        @Html.ActionLink("View Teachers", "TeacherIndex")
+    </div>
+    <div>
+        @Html.ActionLink("View Courses", "CourseIndex")
+    </div>*@
+
+@model AcademicPortalProject.Models.AdminTable
+
+@{
+    ViewBag.Title = "Welcome!";
+}
+
+<h2>Homepage</h2>
+
+<div>
+    <button class="btn btn-group-justified" onClick="location.href =' @Url.Action("StudentIndex" ,"Admin")';return false;">All Students</button><br />
+</div>
+<div>
+    <button class="btn btn-group-justified" onClick="location.href =' @Url.Action("TeacherIndex" ,"Admin")';return false;">All Teachers</button><br />
+</div>
+<div>
+    <button class="btn btn-group-justified" onClick="location.href =' @Url.Action("CourseIndex" ,"Admin")';return false;">All Courses</button><br />
+</div>
